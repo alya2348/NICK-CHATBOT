@@ -33,7 +33,7 @@ def home():
 # -------- Chat --------
 @app.route("/chat", methods=["POST"])
 def chat():
-    data = request.get_json()
+    data = request.get_json(force=True)
 
     if not data or "message" not in data:
         return jsonify({"reply": "Ask me something 🩵"})
